@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Architecture & Generative AI Services - Ramesh Kumar Das</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', 'Inter', sans-serif;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --ai-gradient: linear-gradient(135deg, #00d4ff 0%, #5b86e5 50%, #36d1dc 100%);
+            --backend-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+            color: #ffffff;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-bg {
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-gradient-bg {
+            background: var(--ai-gradient);
+        }
+        
+        .backend-gradient-bg {
+            background: var(--backend-gradient);
+        }
+        
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .ai-text {
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .flow-arrow {
+            animation: flow 2s ease-in-out infinite;
+        }
+        
+        @keyframes flow {
+            0%, 100% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(10px); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold ai-text">← Back to Portfolio</a>
+                <div class="flex items-center gap-4">
+                    <a href="presentation.html" class="text-sm text-gray-300 hover:text-white transition">Presentation</a>
+                    <div class="text-sm text-gray-400">
+                        <i class="fas fa-server mr-2"></i>Backend & AI Services
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white section-padding pt-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="mb-8">
+                    <i class="fas fa-server text-6xl mb-4 pulse-glow"></i>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">Backend Architecture</h1>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6 ai-text">Generative AI Services</h2>
+                <div class="glass-effect rounded-2xl p-8 mb-8">
+                    <p class="text-xl leading-relaxed mb-4">
+                        Comprehensive backend infrastructure powering <strong>AI-driven applications</strong> with 
+                        <strong>microservices architecture</strong>, <strong>scalable APIs</strong>, and 
+                        <strong>intelligent automation</strong>.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-200">
+                        Built with <strong>Django, FastAPI, Docker, Kubernetes</strong>, and integrated with 
+                        cutting-edge <strong>AI/ML models</strong> for text, image, and voice generation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Backend Architecture Overview -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 ai-text" data-aos="fade-up">Backend Architecture Overview</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up">
+                        <div class="text-4xl mb-4 text-blue-400">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Microservices</h3>
+                        <p class="text-gray-300">Independent, scalable services for each AI capability and business function</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl mb-4 text-purple-400">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">AI Integration</h3>
+                        <p class="text-gray-300">Seamless integration with ML models, APIs, and generative AI services</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl mb-4 text-pink-400">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Cloud Native</h3>
+                        <p class="text-gray-300">Containerized, auto-scaling infrastructure on Kubernetes</p>
+                    </div>
+                </div>
+
+                <!-- Architecture Diagram -->
+                <div class="glass-effect rounded-2xl p-8 mb-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-center">System Architecture Flow</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-6">
+                        <div class="bg-blue-500/20 rounded-lg p-4 border-2 border-blue-400 text-center min-w-[150px]">
+                            <i class="fas fa-mobile-alt text-3xl text-blue-400 mb-2"></i>
+                            <p class="font-bold">Client Apps</p>
+                        </div>
+                        <i class="fas fa-arrow-right text-2xl text-gray-400 flow-arrow"></i>
+                        <div class="bg-purple-500/20 rounded-lg p-4 border-2 border-purple-400 text-center min-w-[150px]">
+                            <i class="fas fa-network-wired text-3xl text-purple-400 mb-2"></i>
+                            <p class="font-bold">API Gateway</p>
+                        </div>
+                        <i class="fas fa-arrow-right text-2xl text-gray-400 flow-arrow"></i>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-green-500/20 rounded-lg p-3 border-2 border-green-400 text-center">
+                                <i class="fas fa-robot text-xl text-green-400 mb-1"></i>
+                                <p class="font-bold text-xs">AI Services</p>
+                            </div>
+                            <div class="bg-yellow-500/20 rounded-lg p-3 border-2 border-yellow-400 text-center">
+                                <i class="fas fa-database text-xl text-yellow-400 mb-1"></i>
+                                <p class="font-bold text-xs">Data Services</p>
+                            </div>
+                            <div class="bg-pink-500/20 rounded-lg p-3 border-2 border-pink-400 text-center">
+                                <i class="fas fa-users text-xl text-pink-400 mb-1"></i>
+                                <p class="font-bold text-xs">User Service</p>
+                            </div>
+                            <div class="bg-orange-500/20 rounded-lg p-3 border-2 border-orange-400 text-center">
+                                <i class="fas fa-cog text-xl text-orange-400 mb-1"></i>
+                                <p class="font-bold text-xs">Business Logic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Stack Architecture -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 ai-text" data-aos="fade-up">Full Stack Architecture</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-7xl mx-auto">
+                <div class="glass-effect rounded-2xl p-8 mb-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Complete System Architecture</h3>
+                    <div class="bg-black/30 rounded-lg p-6 overflow-x-auto">
+                        <div class="flex flex-col items-center gap-6 min-w-max">
+                            <!-- Client Layer -->
+                            <div class="flex items-center gap-4">
+                                <div class="bg-blue-500/20 rounded-lg p-4 border-2 border-blue-400 text-center min-w-[200px]">
+                                    <i class="fas fa-mobile-alt text-3xl text-blue-400 mb-2"></i>
+                                    <p class="font-bold">Client Applications</p>
+                                    <p class="text-xs text-gray-400 mt-1">Web, Mobile, API</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-down text-3xl text-gray-400"></i>
+                            
+                            <!-- CDN & Load Balancer -->
+                            <div class="flex items-center gap-4">
+                                <div class="bg-purple-500/20 rounded-lg p-4 border-2 border-purple-400 text-center min-w-[200px]">
+                                    <i class="fas fa-cloud text-3xl text-purple-400 mb-2"></i>
+                                    <p class="font-bold">CDN & Load Balancer</p>
+                                    <p class="text-xs text-gray-400 mt-1">CloudFlare / Nginx</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-down text-3xl text-gray-400"></i>
+                            
+                            <!-- API Gateway -->
+                            <div class="flex items-center gap-4">
+                                <div class="bg-green-500/20 rounded-lg p-4 border-2 border-green-400 text-center min-w-[200px]">
+                                    <i class="fas fa-network-wired text-3xl text-green-400 mb-2"></i>
+                                    <p class="font-bold">API Gateway</p>
+                                    <p class="text-xs text-gray-400 mt-1">FastAPI Router</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-down text-3xl text-gray-400"></i>
+                            
+                            <!-- Microservices Layer -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <!-- Django Service -->
+                                <div class="bg-indigo-500/20 rounded-lg p-4 border-2 border-indigo-400 text-center">
+                                    <i class="fab fa-python text-2xl text-indigo-400 mb-2"></i>
+                                    <p class="font-bold text-sm">Django Service</p>
+                                    <p class="text-xs text-gray-400">Business Logic</p>
+                                    <p class="text-xs text-gray-400">User Management</p>
+                                </div>
+                                
+                                <!-- FastAPI AI Services -->
+                                <div class="bg-yellow-500/20 rounded-lg p-4 border-2 border-yellow-400 text-center">
+                                    <i class="fas fa-bolt text-2xl text-yellow-400 mb-2"></i>
+                                    <p class="font-bold text-sm">FastAPI Services</p>
+                                    <p class="text-xs text-gray-400">AI Endpoints</p>
+                                    <p class="text-xs text-gray-400">Microservices</p>
+                                </div>
+                                
+                                <!-- RunPod/FAL Services -->
+                                <div class="bg-pink-500/20 rounded-lg p-4 border-2 border-pink-400 text-center">
+                                    <i class="fas fa-server text-2xl text-pink-400 mb-2"></i>
+                                    <p class="font-bold text-sm">RunPod/FAL</p>
+                                    <p class="text-xs text-gray-400">GPU Services</p>
+                                    <p class="text-xs text-gray-400">Optimized AI</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-down text-3xl text-gray-400"></i>
+                            
+                            <!-- Data Layer -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-blue-500/20 rounded-lg p-3 border border-blue-400 text-center">
+                                    <i class="fas fa-database text-xl text-blue-400 mb-1"></i>
+                                    <p class="font-bold text-xs">PostgreSQL</p>
+                                </div>
+                                <div class="bg-orange-500/20 rounded-lg p-3 border border-orange-400 text-center">
+                                    <i class="fas fa-memory text-xl text-orange-400 mb-1"></i>
+                                    <p class="font-bold text-xs">Redis</p>
+                                </div>
+                                <div class="bg-green-500/20 rounded-lg p-3 border border-green-400 text-center">
+                                    <i class="fas fa-cloud text-xl text-green-400 mb-1"></i>
+                                    <p class="font-bold text-xs">GCS/S3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generative AI Services -->
+    <section class="section-padding ai-gradient-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white" data-aos="fade-up">Comprehensive Generative AI Services</h2>
+            <div class="w-32 h-1.5 bg-white/50 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Text-to-Image Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-image text-pink-300 mr-2"></i>Text-to-Image Service
+                            </h3>
+                            <p class="text-gray-200">Generate high-quality images from text prompts using Leonardo AI and Stable Diffusion</p>
+                        </div>
+                        <span class="bg-pink-400/20 text-pink-300 px-4 py-2 rounded-full font-semibold">FastAPI + RunPod</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async API for image generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Leonardo AI API:</strong> Professional image generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>RunPod:</strong> GPU-accelerated inference</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Stable Diffusion:</strong> Open-source models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>GCS Storage:</strong> Generated image storage</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multiple model options (Leonardo, SDXL, Flux)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Style presets and custom styles</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Resolution up to 1024x1024</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Negative prompts support</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Batch generation capabilities</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/image/text-to-image</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "prompt": "A futuristic city at sunset",</code><br>
+                            <code class="text-yellow-300">  "negative_prompt": "blurry, low quality",</code><br>
+                            <code class="text-yellow-300">  "model_id": "leonardo",</code><br>
+                            <code class="text-yellow-300">  "width": 1024,</code><br>
+                            <code class="text-yellow-300">  "height": 1024,</code><br>
+                            <code class="text-yellow-300">  "num_images": 1</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-pink-500/20 border-l-4 border-pink-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Deployed on RunPod with GPU acceleration. Generates images in 8-15 seconds. 
+                            Handles 100+ concurrent requests. Images stored in GCS with CDN delivery.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image-to-Image Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-exchange-alt text-blue-300 mr-2"></i>Image-to-Image Service
+                            </h3>
+                            <p class="text-gray-200">Transform existing images using AI with style transfer and enhancement</p>
+                        </div>
+                        <span class="bg-blue-400/20 text-blue-300 px-4 py-2 rounded-full font-semibold">FastAPI + FAL</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async image transformation API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FAL.ai:</strong> Optimized GPU inference platform</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>ControlNet:</strong> Precise image control</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Stable Diffusion:</strong> Image-to-image models</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Style transfer and artistic transformation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Image enhancement and upscaling</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Strength control (0.0 to 1.0)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Prompt-guided transformations</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/image/image-to-image</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "image_url": "https://...",</code><br>
+                            <code class="text-yellow-300">  "prompt": "Transform to anime style",</code><br>
+                            <code class="text-yellow-300">  "strength": 0.7,</code><br>
+                            <code class="text-yellow-300">  "guidance_scale": 7.5</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-500/20 border-l-4 border-blue-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Optimized on FAL.ai for fast inference. Processes images in 3-8 seconds. 
+                            Uses ControlNet for precise control. Handles 200+ requests per minute.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Text-to-Video Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-video text-red-300 mr-2"></i>Text-to-Video Service
+                            </h3>
+                            <p class="text-gray-200">Generate videos from text prompts using advanced AI models</p>
+                        </div>
+                        <span class="bg-red-400/20 text-red-300 px-4 py-2 rounded-full font-semibold">FastAPI + RunPod</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async video generation API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Leonardo AI:</strong> Text-to-video generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>RunPod:</strong> GPU clusters for video processing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Celery:</strong> Background task processing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Video generation from text prompts</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Duration control (2-5 seconds)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Resolution options (512x512 to 1024x1024)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Frame rate control (24fps, 30fps)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/video/text-to-video</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "prompt": "A cat walking in a garden",</code><br>
+                            <code class="text-yellow-300">  "duration": 4,</code><br>
+                            <code class="text-yellow-300">  "width": 1024,</code><br>
+                            <code class="text-yellow-300">  "height": 576,</code><br>
+                            <code class="text-yellow-300">  "fps": 24</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-500/20 border-l-4 border-red-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Deployed on RunPod GPU clusters. Generates videos in 30-120 seconds. 
+                            Uses Celery for async processing. Videos stored in GCS with streaming support.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image-to-Video Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-film text-orange-300 mr-2"></i>Image-to-Video Service
+                            </h3>
+                            <p class="text-gray-200">Animate static images into dynamic videos using AI</p>
+                        </div>
+                        <span class="bg-orange-400/20 text-orange-300 px-4 py-2 rounded-full font-semibold">FastAPI + FAL</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async video animation API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FAL.ai:</strong> Optimized image-to-video models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>AnimateDiff:</strong> Image animation models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Leonardo AI:</strong> Image-to-video API</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Animate static images into videos</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Motion control and direction</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Duration and frame rate control</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Prompt-guided animation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/video/image-to-video</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "image_url": "https://...",</code><br>
+                            <code class="text-yellow-300">  "prompt": "Gentle movement, wind effect",</code><br>
+                            <code class="text-yellow-300">  "duration": 3,</code><br>
+                            <code class="text-yellow-300">  "motion_bucket_id": 127</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-500/20 border-l-4 border-orange-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Optimized on FAL.ai for fast video generation. Processes in 20-60 seconds. 
+                            Uses AnimateDiff models for smooth animations. Handles 50+ concurrent requests.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Text-to-3D Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-cube text-cyan-300 mr-2"></i>Text-to-3D Service
+                            </h3>
+                            <p class="text-gray-200">Generate 3D models and meshes from text descriptions</p>
+                        </div>
+                        <span class="bg-cyan-400/20 text-cyan-300 px-4 py-2 rounded-full font-semibold">FastAPI + RunPod</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async 3D generation API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>RunPod:</strong> GPU clusters for 3D rendering</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Shap-E / DreamFusion:</strong> 3D generation models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Blender:</strong> 3D mesh processing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Generate 3D meshes from text</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multiple format support (OBJ, GLB, PLY)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Texture generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>3D preview and visualization</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/3d/text-to-3d</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "prompt": "A red sports car",</code><br>
+                            <code class="text-yellow-300">  "format": "glb",</code><br>
+                            <code class="text-yellow-300">  "resolution": 256,</code><br>
+                            <code class="text-yellow-300">  "guidance_scale": 7.5</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyan-500/20 border-l-4 border-cyan-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Deployed on RunPod with high-memory GPU instances. Generates 3D models in 60-180 seconds. 
+                            Uses Shap-E and DreamFusion models. Supports multiple 3D formats.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image-to-3D Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-cubes text-teal-300 mr-2"></i>Image-to-3D Service
+                            </h3>
+                            <p class="text-gray-200">Convert 2D images into 3D models with depth estimation</p>
+                        </div>
+                        <span class="bg-teal-400/20 text-teal-300 px-4 py-2 rounded-full font-semibold">FastAPI + FAL</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async 3D conversion API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FAL.ai:</strong> Optimized 3D reconstruction</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>NeRF / Instant-NGP:</strong> Neural radiance fields</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Depth Estimation:</strong> MiDaS, DPT models</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Convert images to 3D meshes</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Depth map generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Texture mapping from source image</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multiple view reconstruction</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/3d/image-to-3d</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "image_url": "https://...",</code><br>
+                            <code class="text-yellow-300">  "format": "glb",</code><br>
+                            <code class="text-yellow-300">  "depth_estimation": "dpt",</code><br>
+                            <code class="text-yellow-300">  "resolution": 512</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-500/20 border-l-4 border-teal-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Optimized on FAL.ai for fast 3D reconstruction. Processes in 45-120 seconds. 
+                            Uses NeRF and depth estimation models. Generates high-quality 3D meshes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Text-to-Speech Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-volume-up text-yellow-300 mr-2"></i>Text-to-Speech (TTS) Service
+                            </h3>
+                            <p class="text-gray-200">Convert text into natural-sounding speech with multiple voice options</p>
+                        </div>
+                        <span class="bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-full font-semibold">FastAPI + ElevenLabs</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> High-performance async framework</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>gTTS / ElevenLabs API:</strong> Speech synthesis engines</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Redis:</strong> Caching generated audio files</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Celery:</strong> Background task processing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multiple voice options (male, female, different accents)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>SSML support for advanced speech control</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Audio format options (MP3, WAV, OGG)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Batch processing for large text volumes</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint Example:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/tts/generate</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "text": "Hello, this is a test message",</code><br>
+                            <code class="text-yellow-300">  "voice": "en-US-Standard-F",</code><br>
+                            <code class="text-yellow-300">  "speed": 1.0,</code><br>
+                            <code class="text-yellow-300">  "format": "mp3"</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/tts/generate</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "text": "Hello, this is a test message",</code><br>
+                            <code class="text-yellow-300">  "voice_id": "21m00Tcm4TlvDq8ikWAM",</code><br>
+                            <code class="text-yellow-300">  "model_id": "eleven_multilingual_v2",</code><br>
+                            <code class="text-yellow-300">  "stability": 0.5,</code><br>
+                            <code class="text-yellow-300">  "similarity_boost": 0.75</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-500/20 border-l-4 border-yellow-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Performance:</strong> Processes 1000+ TTS requests per minute using ElevenLabs API. 
+                            Cached responses reduce latency by 80%. Async processing handles concurrent requests efficiently.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Speech-to-Text Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="700">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-microphone text-green-300 mr-2"></i>Speech-to-Text (STT) Service
+                            </h3>
+                            <p class="text-gray-200">Convert audio to text with high accuracy using Whisper and Google Speech API</p>
+                        </div>
+                        <span class="bg-green-400/20 text-green-300 px-4 py-2 rounded-full font-semibold">FastAPI + Whisper</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async STT processing API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>OpenAI Whisper:</strong> High-accuracy transcription</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Google Speech-to-Text:</strong> Multi-language support</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>RunPod:</strong> GPU-accelerated Whisper inference</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multi-language transcription (100+ languages)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Speaker diarization</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Timestamp generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Punctuation and formatting</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/stt/transcribe</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "audio_url": "https://...",</code><br>
+                            <code class="text-yellow-300">  "language": "en",</code><br>
+                            <code class="text-yellow-300">  "model": "whisper-large-v3",</code><br>
+                            <code class="text-yellow-300">  "response_format": "json"</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-500/20 border-l-4 border-green-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Deployment:</strong> Deployed on RunPod with GPU acceleration for Whisper models. 
+                            Processes audio in 5-30 seconds depending on length. Supports real-time streaming transcription.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Voice Cloning Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="800">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-user-voice text-indigo-300 mr-2"></i>Voice Cloning Service
+                            </h3>
+                            <p class="text-gray-200">Clone voices from audio samples for personalized TTS</p>
+                        </div>
+                        <span class="bg-indigo-400/20 text-indigo-300 px-4 py-2 rounded-full font-semibold">FastAPI + ElevenLabs</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async voice cloning API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>ElevenLabs API:</strong> Professional voice cloning</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Voice Training:</strong> Custom voice model creation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Privacy Controls:</strong> Consent and verification</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Clone voices from audio samples</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Instant voice cloning (1 minute samples)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Professional voice training</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Voice library management</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/voice/clone</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "name": "My Voice",</code><br>
+                            <code class="text-yellow-300">  "files": ["audio_sample.mp3"],</code><br>
+                            <code class="text-yellow-300">  "description": "Custom voice clone"</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-indigo-500/20 border-l-4 border-indigo-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Security:</strong> Voice cloning requires explicit consent. All voice samples are encrypted. 
+                            Privacy controls ensure ethical use. Processes voice cloning in 2-5 minutes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Audio Enhancement Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="900">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-music text-purple-300 mr-2"></i>Audio Enhancement Service
+                            </h3>
+                            <p class="text-gray-200">Enhance audio quality, remove noise, and improve clarity</p>
+                        </div>
+                        <span class="bg-purple-400/20 text-purple-300 px-4 py-2 rounded-full font-semibold">FastAPI + AI Models</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async audio processing API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Noise Reduction:</strong> AI-powered denoising</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Audio Enhancement:</strong> Quality improvement models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FFmpeg:</strong> Audio processing and conversion</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Background noise removal</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Audio quality enhancement</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Volume normalization</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Format conversion (MP3, WAV, OGG)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/audio/enhance</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "audio_url": "https://...",</code><br>
+                            <code class="text-yellow-300">  "enhancement_type": "noise_reduction",</code><br>
+                            <code class="text-yellow-300">  "output_format": "mp3"</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-500/20 border-l-4 border-purple-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Performance:</strong> Processes audio files in 10-60 seconds depending on length. 
+                            Uses AI models for intelligent noise reduction. Supports batch processing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chat & Conversational AI -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-comments text-cyan-300 mr-2"></i>Chat & Conversational AI
+                            </h3>
+                            <p class="text-gray-200">Multi-provider chat API with OpenAI, DeepSeek, and Gemini</p>
+                        </div>
+                        <span class="bg-cyan-400/20 text-cyan-300 px-4 py-2 rounded-full font-semibold">FastAPI + Multi-Provider</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Unified chat API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>OpenAI GPT:</strong> GPT-4, GPT-3.5, GPT-4 Vision</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>DeepSeek:</strong> Cost-effective alternative</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Google Gemini:</strong> Multimodal capabilities</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multi-provider support (OpenAI, DeepSeek, Gemini)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Conversation history management</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Image analysis (vision models)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Streaming responses</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/chat/unified</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "prompt": "Explain quantum computing",</code><br>
+                            <code class="text-yellow-300">  "provider": "openai",</code><br>
+                            <code class="text-yellow-300">  "model": "gpt-4",</code><br>
+                            <code class="text-yellow-300">  "temperature": 0.7</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyan-500/20 border-l-4 border-cyan-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Performance:</strong> Unified API routes to best provider based on request. 
+                            Handles 500+ concurrent chat requests. Response time 1-5 seconds depending on model.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Avatar Video Generation -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-user-tie text-rose-300 mr-2"></i>Avatar Video Generation
+                            </h3>
+                            <p class="text-gray-200">Generate talking avatar videos using HeyGen API</p>
+                        </div>
+                        <span class="bg-rose-400/20 text-rose-300 px-4 py-2 rounded-full font-semibold">FastAPI + HeyGen</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Technology Stack:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>FastAPI:</strong> Async avatar generation API</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>HeyGen API:</strong> Professional avatar video generation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Avatar Library:</strong> Pre-built avatar collection</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Lip Sync:</strong> Natural speech synchronization</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Features:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Generate talking avatar videos</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multiple avatar options</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Custom avatar creation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Multi-language support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6 mb-4">
+                        <h4 class="text-lg font-bold mb-3">API Endpoint:</h4>
+                        <div class="code-block">
+                            <code class="text-green-400">POST</code> <code class="text-blue-400">/api/v1/ai/avatar/generate</code><br><br>
+                            <code class="text-gray-400">{</code><br>
+                            <code class="text-yellow-300">  "avatar_id": "avatar_123",</code><br>
+                            <code class="text-yellow-300">  "text": "Hello, welcome to our platform",</code><br>
+                            <code class="text-yellow-300">  "voice_id": "voice_456"</code><br>
+                            <code class="text-gray-400">}</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-rose-500/20 border-l-4 border-rose-400 p-4 rounded">
+                        <p class="text-sm">
+                            <strong>Performance:</strong> Generates avatar videos in 30-90 seconds using HeyGen API. 
+                            Handles 20+ concurrent requests. Videos stored in GCS with streaming support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RunPod & FAL Deployment -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 ai-text" data-aos="fade-up">GPU-Optimized Deployment: RunPod & FAL</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- RunPod Deployment -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-server text-blue-400 mr-2"></i>RunPod GPU Deployment
+                            </h3>
+                            <p class="text-gray-300">GPU-accelerated AI services deployed on RunPod for optimal performance</p>
+                        </div>
+                        <span class="bg-blue-400/20 text-blue-300 px-4 py-2 rounded-full font-semibold">RunPod</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-blue-400">Services Deployed:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Text-to-Image:</strong> Stable Diffusion, Leonardo models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Text-to-Video:</strong> Video generation models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Text-to-3D:</strong> Shap-E, DreamFusion models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Speech-to-Text:</strong> Whisper large models</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-blue-400">Benefits:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Cost Optimization:</strong> Pay-per-use GPU instances, 40% cost reduction</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Auto-scaling:</strong> Scale GPU instances based on demand</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Performance:</strong> Dedicated GPU resources, faster inference</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Reliability:</strong> 99.9% uptime with automatic failover</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-500/20 border-l-4 border-blue-400 p-4 rounded mb-4">
+                        <h4 class="font-bold mb-2">RunPod Architecture:</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold text-blue-300 mb-1">GPU Instances:</p>
+                                <p class="text-gray-300">RTX 4090, A100, H100</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-300 mb-1">Container Runtime:</p>
+                                <p class="text-gray-300">Docker with GPU support</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-300 mb-1">Networking:</p>
+                                <p class="text-gray-300">Private endpoints, API gateway</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAL.ai Deployment -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-bolt text-yellow-400 mr-2"></i>FAL.ai Optimized Deployment
+                            </h3>
+                            <p class="text-gray-300">High-performance AI inference on FAL.ai for fast response times</p>
+                        </div>
+                        <span class="bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-full font-semibold">FAL.ai</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-yellow-400">Services Deployed:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Image-to-Image:</strong> ControlNet, style transfer</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Image-to-Video:</strong> AnimateDiff models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Image-to-3D:</strong> NeRF, Instant-NGP</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span><strong>Image Upscaling:</strong> Super-resolution models</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-yellow-400">Benefits:</h4>
+                            <ul class="space-y-2 text-gray-200">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Speed:</strong> Optimized inference, 3-8 second response times</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Queue Management:</strong> Automatic request queuing and processing</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Cost Efficiency:</strong> Pay-per-request model, 50% cheaper than dedicated GPUs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Model Variety:</strong> Access to 100+ pre-optimized models</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-500/20 border-l-4 border-yellow-400 p-4 rounded mb-4">
+                        <h4 class="font-bold mb-2">FAL.ai Architecture:</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold text-yellow-300 mb-1">Inference Engine:</p>
+                                <p class="text-gray-300">Optimized PyTorch, TensorRT</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-yellow-300 mb-1">API Integration:</p>
+                                <p class="text-gray-300">RESTful API, WebSocket support</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-yellow-300 mb-1">Auto-scaling:</p>
+                                <p class="text-gray-300">Dynamic GPU allocation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Comparison -->
+                <div class="glass-effect rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Deployment Strategy Comparison</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-gray-600">
+                                    <th class="pb-4 pr-4">Service Type</th>
+                                    <th class="pb-4 pr-4">Deployment Platform</th>
+                                    <th class="pb-4 pr-4">Response Time</th>
+                                    <th class="pb-4 pr-4">Cost Model</th>
+                                    <th class="pb-4">Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3 pr-4">Text-to-Image</td>
+                                    <td class="py-3 pr-4">RunPod</td>
+                                    <td class="py-3 pr-4">8-15s</td>
+                                    <td class="py-3 pr-4">Per-hour GPU</td>
+                                    <td class="py-3">High-volume generation</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3 pr-4">Image-to-Image</td>
+                                    <td class="py-3 pr-4">FAL.ai</td>
+                                    <td class="py-3 pr-4">3-8s</td>
+                                    <td class="py-3 pr-4">Per-request</td>
+                                    <td class="py-3">Fast transformations</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3 pr-4">Text-to-Video</td>
+                                    <td class="py-3 pr-4">RunPod</td>
+                                    <td class="py-3 pr-4">30-120s</td>
+                                    <td class="py-3 pr-4">Per-hour GPU</td>
+                                    <td class="py-3">Long processing tasks</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3 pr-4">Image-to-Video</td>
+                                    <td class="py-3 pr-4">FAL.ai</td>
+                                    <td class="py-3 pr-4">20-60s</td>
+                                    <td class="py-3 pr-4">Per-request</td>
+                                    <td class="py-3">Optimized animation</td>
+                                </tr>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-3 pr-4">Text-to-3D</td>
+                                    <td class="py-3 pr-4">RunPod</td>
+                                    <td class="py-3 pr-4">60-180s</td>
+                                    <td class="py-3 pr-4">Per-hour GPU</td>
+                                    <td class="py-3">GPU-intensive tasks</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 pr-4">Image-to-3D</td>
+                                    <td class="py-3 pr-4">FAL.ai</td>
+                                    <td class="py-3 pr-4">45-120s</td>
+                                    <td class="py-3 pr-4">Per-request</td>
+                                    <td class="py-3">Fast 3D reconstruction</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backend Services Architecture -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 ai-text" data-aos="fade-up">Backend Services Architecture</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Django Main Service -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fab fa-python text-green-400 mr-2"></i>Django Main Service
+                            </h3>
+                            <p class="text-gray-300">Core business logic, user management, and admin dashboard</p>
+                        </div>
+                        <span class="bg-green-400/20 text-green-300 px-4 py-2 rounded-full font-semibold">Django REST</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-blue-400">User Management</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Authentication & Authorization</li>
+                                <li>• JWT Token Management</li>
+                                <li>• Role-based Access Control</li>
+                                <li>• User Profiles & Settings</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-purple-400">Business Logic</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Subscription Management</li>
+                                <li>• Payment Processing</li>
+                                <li>• Usage Analytics</li>
+                                <li>• Content Management</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-pink-400">Admin Dashboard</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• User Analytics</li>
+                                <li>• System Monitoring</li>
+                                <li>• Content Moderation</li>
+                                <li>• Configuration Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FastAPI AI Services -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-bolt text-yellow-400 mr-2"></i>FastAPI AI Services
+                            </h3>
+                            <p class="text-gray-300">High-performance microservices for AI operations</p>
+                        </div>
+                        <span class="bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-full font-semibold">FastAPI</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-yellow-400">Service Architecture</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Async/Await:</strong> Non-blocking I/O for concurrent requests</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>WebSocket Support:</strong> Real-time communication</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Auto Documentation:</strong> OpenAPI/Swagger integration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Request Validation:</strong> Pydantic models for type safety</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-yellow-400">Performance Features</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Connection Pooling:</strong> Efficient database connections</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Response Caching:</strong> Redis for frequently accessed data</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Background Tasks:</strong> Celery for long-running operations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span><strong>Rate Limiting:</strong> Protect against abuse</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & Storage -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">
+                                <i class="fas fa-database text-blue-400 mr-2"></i>Database & Storage
+                            </h3>
+                            <p class="text-gray-300">Scalable data persistence and file storage</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-blue-400">PostgreSQL</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• ACID compliance for transactions</li>
+                                <li>• JSONB for flexible schema</li>
+                                <li>• Full-text search capabilities</li>
+                                <li>• Connection pooling with PgBouncer</li>
+                                <li>• Read replicas for scaling</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-orange-400">Redis</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Session management</li>
+                                <li>• API response caching</li>
+                                <li>• Celery message broker</li>
+                                <li>• Real-time data storage</li>
+                                <li>• Rate limiting counters</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-green-400">AWS S3</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Generated image storage</li>
+                                <li>• Audio file storage</li>
+                                <li>• User uploads</li>
+                                <li>• CDN integration (CloudFront)</li>
+                                <li>• Lifecycle policies for cost optimization</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-purple-400">MongoDB (Optional)</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Log aggregation</li>
+                                <li>• Analytics data</li>
+                                <li>• Flexible document storage</li>
+                                <li>• Time-series data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment & Infrastructure -->
+    <section class="section-padding backend-gradient-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white" data-aos="fade-up">Deployment & Infrastructure</h2>
+            <div class="w-32 h-1.5 bg-white/50 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-effect rounded-2xl p-8 card-hover" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-4">
+                            <i class="fab fa-docker text-blue-400 mr-2"></i>Docker Containerization
+                        </h3>
+                        <ul class="space-y-3 text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Multi-stage Builds:</strong> Optimized image sizes
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Service Isolation:</strong> Each microservice in separate container
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Health Checks:</strong> Automated container health monitoring
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Volume Management:</strong> Persistent storage for data
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-effect rounded-2xl p-8 card-hover" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-4">
+                            <i class="fas fa-cubes text-purple-400 mr-2"></i>Kubernetes Orchestration
+                        </h3>
+                        <ul class="space-y-3 text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Auto-scaling:</strong> HPA for dynamic resource allocation
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Service Discovery:</strong> Automatic service registration
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Load Balancing:</strong> Traffic distribution across pods
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                <div>
+                                    <strong>Rolling Updates:</strong> Zero-downtime deployments
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl p-8 mt-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Infrastructure Diagram</h3>
+                    <div class="bg-black/30 rounded-lg p-6">
+                        <div class="flex flex-wrap justify-center items-center gap-4">
+                            <div class="bg-blue-500/20 rounded-lg p-4 border-2 border-blue-400">
+                                <i class="fas fa-cloud text-2xl text-blue-400 mb-2"></i>
+                                <p class="font-bold text-sm">Cloud Provider</p>
+                                <p class="text-xs text-gray-400">AWS/GCP/Azure/VPS</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-2xl text-gray-400"></i>
+                            <div class="bg-purple-500/20 rounded-lg p-4 border-2 border-purple-400">
+                                <i class="fas fa-cubes text-2xl text-purple-400 mb-2"></i>
+                                <p class="font-bold text-sm">Kubernetes</p>
+                                <p class="text-xs text-gray-400">Cluster</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-2xl text-gray-400"></i>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-green-500/20 rounded-lg p-3 border border-green-400 text-center">
+                                    <i class="fas fa-server text-lg text-green-400 mb-1"></i>
+                                    <p class="font-bold text-xs">Django</p>
+                                </div>
+                                <div class="bg-yellow-500/20 rounded-lg p-3 border border-yellow-400 text-center">
+                                    <i class="fas fa-bolt text-lg text-yellow-400 mb-1"></i>
+                                    <p class="font-bold text-xs">FastAPI</p>
+                                </div>
+                                <div class="bg-pink-500/20 rounded-lg p-3 border border-pink-400 text-center">
+                                    <i class="fas fa-database text-lg text-pink-400 mb-1"></i>
+                                    <p class="font-bold text-xs">PostgreSQL</p>
+                                </div>
+                                <div class="bg-orange-500/20 rounded-lg p-3 border border-orange-400 text-center">
+                                    <i class="fas fa-memory text-lg text-orange-400 mb-1"></i>
+                                    <p class="font-bold text-xs">Redis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Architecture -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 via-red-900 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 text-red-300" data-aos="fade-up">Enterprise Security Architecture</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-red-400 via-orange-400 to-red-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Multi-Layer Security Overview -->
+                <div class="glass-effect rounded-2xl p-8 mb-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-red-300">Multi-Layer Defense Strategy</h3>
+                    <div class="bg-black/30 rounded-lg p-6">
+                        <div class="space-y-6">
+                            <!-- Layer 1 -->
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <h4 class="text-xl font-bold mb-2 text-red-300">Layer 1: External Proxy & SSL/TLS</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>SSL/TLS Termination:</strong> All traffic encrypted with TLS 1.3</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Domain Validation:</strong> Strict domain-based routing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>DDoS Protection:</strong> Cloud-based DDoS mitigation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>WAF Integration:</strong> Web Application Firewall protection</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Layer 2 -->
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <h4 class="text-xl font-bold mb-2 text-orange-300">Layer 2: Internal Nginx Proxy Security</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-tachometer-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Rate Limiting:</strong> 10 req/s general, 2 req/s login, 5 req/s API</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-network-wired text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Connection Limits:</strong> 20 per IP, 1000 per server</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file-alt text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Request Size Limits:</strong> 15MB maximum body size</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-bug text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Attack Detection:</strong> SQL Injection, XSS, Command Injection, Path Traversal, SSRF</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-headers text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Security Headers:</strong> CSP, X-Frame-Options, HSTS, Referrer Policy</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Layer 3 -->
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h4 class="text-xl font-bold mb-2 text-yellow-300">Layer 3: Application Security Middleware</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-user-shield text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>IP Whitelist/Blacklist:</strong> Dynamic IP filtering</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-database text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>SQL Injection Prevention:</strong> Pattern detection and blocking</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-code text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>XSS Protection:</strong> Input sanitization and output encoding</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-terminal text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Command Injection Prevention:</strong> Shell command blocking</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-lock text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>CSRF Protection:</strong> Token-based request validation</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Layer 4 -->
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="text-xl font-bold mb-2 text-green-300">Layer 4: Authentication & Authorization</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-key text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>JWT Authentication:</strong> Secure token-based auth with expiration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-users-cog text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Role-Based Access Control:</strong> Hierarchical permission system</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-fingerprint text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Password Security:</strong> Bcrypt hashing with salt</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-virus text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Token Validation:</strong> Signature verification and audience checks</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Layer 5 -->
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <h4 class="text-xl font-bold mb-2 text-blue-300">Layer 5: Application-Level Security</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Input Validation:</strong> Pydantic models for type safety</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>ORM Protection:</strong> Parameterized queries prevent SQL injection</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Output Encoding:</strong> Automatic XSS prevention</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
+                                        <span><strong>Error Handling:</strong> Secure error messages without sensitive data</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proxy Architecture -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-red-300">Proxy Architecture & Security</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="text-xl font-bold mb-4 text-red-300">
+                                <i class="fas fa-cloud text-red-400 mr-2"></i>External Proxy
+                            </h4>
+                            <ul class="space-y-3 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>SSL/TLS Termination:</strong> All HTTPS traffic decrypted at edge
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Domain Routing:</strong> Routes to internal proxy based on domain
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>DDoS Protection:</strong> Cloud-based mitigation before reaching internal services
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>WAF Rules:</strong> Web Application Firewall with custom rules
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Geographic Filtering:</strong> Optional country-based blocking
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="text-xl font-bold mb-4 text-orange-300">
+                                <i class="fas fa-server text-orange-400 mr-2"></i>Internal Nginx Proxy
+                            </h4>
+                            <ul class="space-y-3 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Rate Limiting:</strong> Per-IP and per-endpoint limits
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Attack Pattern Detection:</strong> Real-time pattern matching
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Request Filtering:</strong> Size, method, and header validation
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Security Headers:</strong> Comprehensive header injection
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Load Balancing:</strong> Distributes traffic across backend instances
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-lg p-6">
+                        <h4 class="font-bold mb-3 text-red-300">Request Flow with Security Layers:</h4>
+                        <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
+                            <div class="bg-red-500/30 rounded-lg p-3 border border-red-400 text-center min-w-[120px]">
+                                <i class="fas fa-globe text-red-300 mb-1"></i>
+                                <p class="font-bold">Client</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400"></i>
+                            <div class="bg-orange-500/30 rounded-lg p-3 border border-orange-400 text-center min-w-[120px]">
+                                <i class="fas fa-cloud text-orange-300 mb-1"></i>
+                                <p class="font-bold">External Proxy</p>
+                                <p class="text-xs text-gray-400">SSL/TLS, WAF</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400"></i>
+                            <div class="bg-yellow-500/30 rounded-lg p-3 border border-yellow-400 text-center min-w-[120px]">
+                                <i class="fas fa-server text-yellow-300 mb-1"></i>
+                                <p class="font-bold">Nginx Proxy</p>
+                                <p class="text-xs text-gray-400">Rate Limit, Attack Detection</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400"></i>
+                            <div class="bg-green-500/30 rounded-lg p-3 border border-green-400 text-center min-w-[120px]">
+                                <i class="fas fa-code text-green-300 mb-1"></i>
+                                <p class="font-bold">FastAPI</p>
+                                <p class="text-xs text-gray-400">Middleware, Auth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docker Security -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-red-300">Docker & Container Security</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="text-xl font-bold mb-4 text-blue-300">
+                                <i class="fab fa-docker text-blue-400 mr-2"></i>Container Security
+                            </h4>
+                            <ul class="space-y-3 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Network Isolation:</strong> Separate Docker networks for services
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Non-Root User:</strong> Containers run as non-privileged users
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Read-Only Filesystems:</strong> Immutable container filesystems where possible
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Resource Limits:</strong> CPU and memory constraints per container
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Health Checks:</strong> Automated container health monitoring
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Secrets Management:</strong> Environment variables and secrets files
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="text-xl font-bold mb-4 text-purple-300">
+                                <i class="fas fa-network-wired text-purple-400 mr-2"></i>Docker Compose Security
+                            </h4>
+                            <ul class="space-y-3 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Internal Networks:</strong> Services communicate via private network
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Port Restrictions:</strong> Only necessary ports exposed externally
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Service Dependencies:</strong> Health checks ensure proper startup order
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Volume Security:</strong> Restricted volume mounts with read-only options
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Restart Policies:</strong> Automatic restart on failure with backoff
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <div>
+                                        <strong>Environment Isolation:</strong> Separate .env files per environment
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-6">
+                        <h4 class="font-bold mb-3 text-blue-300">Docker Compose Architecture:</h4>
+                        <div class="code-block text-xs">
+                            <code class="text-gray-400">services:</code><br>
+                            <code class="text-blue-400">  api:</code><br>
+                            <code class="text-yellow-300">    networks: [winsta_ai_network]</code><br>
+                            <code class="text-yellow-300">    depends_on: [redis]</code><br>
+                            <code class="text-yellow-300">    healthcheck: /health endpoint</code><br>
+                            <code class="text-yellow-300">    # No external ports exposed</code><br>
+                            <code class="text-blue-400">  nginx:</code><br>
+                            <code class="text-yellow-300">    ports: ["8500:80"]  # Only Nginx exposed</code><br>
+                            <code class="text-yellow-300">    networks: [winsta_ai_network]</code><br>
+                            <code class="text-yellow-300">    depends_on: [api]</code><br>
+                            <code class="text-blue-400">  redis:</code><br>
+                            <code class="text-yellow-300">    networks: [winsta_ai_network]</code><br>
+                            <code class="text-yellow-300">    # No external ports exposed</code><br>
+                            <code class="text-gray-400">networks:</code><br>
+                            <code class="text-blue-400">  winsta_ai_network:</code><br>
+                            <code class="text-yellow-300">    driver: bridge</code><br>
+                            <code class="text-yellow-300">    external: true  # Isolated network</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Features Details -->
+                <div class="glass-effect rounded-2xl p-8 mb-8 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-red-300">Advanced Security Features</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-green-300">
+                                <i class="fas fa-tachometer-alt mr-2"></i>Rate Limiting
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• General: 10 req/s per IP</li>
+                                <li>• Login: 2 req/s per IP</li>
+                                <li>• API: 5 req/s per IP</li>
+                                <li>• Burst: 20 requests</li>
+                                <li>• Connection: 20 per IP</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-yellow-300">
+                                <i class="fas fa-bug mr-2"></i>Attack Detection
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• SQL Injection</li>
+                                <li>• XSS Attempts</li>
+                                <li>• Command Injection</li>
+                                <li>• Path Traversal</li>
+                                <li>• SSRF Protection</li>
+                                <li>• NoSQL Injection</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-blue-300">
+                                <i class="fas fa-headers mr-2"></i>Security Headers
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Content-Security-Policy</li>
+                                <li>• X-Frame-Options: DENY</li>
+                                <li>• X-Content-Type-Options</li>
+                                <li>• X-XSS-Protection</li>
+                                <li>• Referrer-Policy</li>
+                                <li>• HSTS (when HTTPS)</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-purple-300">
+                                <i class="fas fa-user-shield mr-2"></i>Access Control
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• IP Whitelist/Blacklist</li>
+                                <li>• JWT Token Validation</li>
+                                <li>• Role-Based Access</li>
+                                <li>• Permission Checks</li>
+                                <li>• API Key Validation</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-pink-300">
+                                <i class="fas fa-file-shield mr-2"></i>Request Validation
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Max Body Size: 15MB</li>
+                                <li>• Method Validation</li>
+                                <li>• Header Validation</li>
+                                <li>• URL Length Limits</li>
+                                <li>• Parameter Limits</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <h4 class="font-bold mb-3 text-cyan-300">
+                                <i class="fas fa-clock mr-2"></i>Timeout Protection
+                            </h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li>• Connection: 10s</li>
+                                <li>• Client Body: 10s</li>
+                                <li>• Client Header: 10s</li>
+                                <li>• Proxy: 10s</li>
+                                <li>• Slowloris Protection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Monitoring -->
+                <div class="glass-effect rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-red-300">Security Monitoring & Logging</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="font-bold mb-3 text-green-300">Security Event Logging</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span>All blocked requests logged with reason</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span>IP addresses and user agents tracked</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span>Suspicious activity patterns detected</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span>Rate limit violations logged</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-2 mt-1"></i>
+                                    <span>Failed authentication attempts tracked</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 rounded-lg p-6">
+                            <h4 class="font-bold mb-3 text-blue-300">Security Metrics</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
+                                    <span>Real-time attack detection rate</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
+                                    <span>Rate limit effectiveness metrics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
+                                    <span>Authentication success/failure rates</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
+                                    <span>Response time under attack</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
+                                    <span>Security header compliance</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Documentation Overview Section -->
+        <section class="section-padding bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-4 ai-text" data-aos="fade-up">Complete Documentation Suite</h2>
+                <div class="w-32 h-1.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-8 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+                <p class="text-center text-lg text-gray-300 mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Explore comprehensive documentation covering my professional background, technical expertise, and detailed architecture designs.
+                </p>
+                
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <!-- Portfolio Card -->
+                        <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up">
+                            <div class="text-center mb-4">
+                                <div class="inline-block p-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full mb-4">
+                                    <i class="fas fa-home text-3xl text-purple-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-white">Portfolio</h3>
+                                <p class="text-sm text-gray-300 mb-4">Personal portfolio with projects, skills, experience, and achievements</p>
+                                <a href="index.html" class="text-purple-400 font-semibold text-sm hover:underline">
+                                    View Portfolio <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Professional Overview Card -->
+                        <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-center mb-4">
+                                <div class="inline-block p-4 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full mb-4">
+                                    <i class="fas fa-user-tie text-3xl text-blue-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-white">Professional Overview</h3>
+                                <p class="text-sm text-gray-300 mb-4">Project tracks, technology usage, microservices, and career growth</p>
+                                <a href="presentation.html" class="text-blue-400 font-semibold text-sm hover:underline">
+                                    View Overview <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Backend Documentation Card -->
+                        <div class="glass-effect rounded-2xl p-6 card-hover border-2 border-green-400/50" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-4">
+                                <div class="inline-block p-4 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-full mb-4">
+                                    <i class="fas fa-server text-3xl text-green-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-white">Backend & AI</h3>
+                                <p class="text-sm text-gray-300 mb-4">Backend architecture, AI services, microservices, security, deployment</p>
+                                <span class="text-green-400 font-semibold text-sm">
+                                    You are here <i class="fas fa-check-circle ml-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Frontend Documentation Card -->
+                        <div class="glass-effect rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-4">
+                                <div class="inline-block p-4 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full mb-4">
+                                    <i class="fas fa-code text-3xl text-indigo-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-white">Frontend</h3>
+                                <p class="text-sm text-gray-300 mb-4">Frontend architecture, React/Next.js/Django/Flutter, UI/UX patterns</p>
+                                <a href="fronted-presentation.html" class="text-indigo-400 font-semibold text-sm hover:underline">
+                                    View Frontend <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+       
+                </div>
+            </div>
+        </section>
+    
+
+    <!-- Call to Action -->
+    <section class="section-padding gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Interested in the Backend Architecture?</h2>
+            <p class="text-xl mb-8 text-gray-200 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Let's discuss how this scalable backend architecture can power your next AI-driven project.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="index.html#contact" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
+                    Get In Touch
+                </a>
+                <a href="presentation.html" class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all border-2 border-white/30">
+                    View Full Presentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Charts
+        function initCharts() {
+            Chart.defaults.color = '#ffffff';
+            Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+            // Response Time Chart
+            const responseTimeCtx = document.getElementById('responseTimeChart');
+            if (responseTimeCtx) {
+                new Chart(responseTimeCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['TTS Service', 'Image Gen', 'Face Swap', 'User API', 'Payment API'],
+                        datasets: [{
+                            label: 'Average Response Time (ms)',
+                            data: [1200, 8500, 3200, 150, 200],
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+
+            // Request Volume Chart
+            const requestVolumeCtx = document.getElementById('requestVolumeChart');
+            if (requestVolumeCtx) {
+                new Chart(requestVolumeCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['TTS', 'Image Gen', 'Face Swap', 'User API', 'Payment'],
+                        datasets: [{
+                            label: 'Requests per Hour',
+                            data: [5000, 2000, 1500, 15000, 3000],
+                            backgroundColor: [
+                                'rgba(102, 126, 234, 0.8)',
+                                'rgba(118, 75, 162, 0.8)',
+                                'rgba(240, 147, 251, 0.8)',
+                                'rgba(79, 172, 254, 0.8)',
+                                'rgba(250, 112, 154, 0.8)'
+                            ],
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(initCharts, 500);
+        });
+    </script>
+</body>
+</html>
+

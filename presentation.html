@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramesh Kumar Das - Detailed Professional Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', 'Inter', sans-serif;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-bg {
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 4px;
+            transition: all 0.3s;
+        }
+        
+        .tech-badge:hover {
+            transform: scale(1.1);
+        }
+        
+        .project-timeline {
+            position: relative;
+        }
+        
+        .project-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold gradient-text">← Portfolio</a>
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="text-sm text-gray-600 hover:text-purple-600 transition">
+                        <i class="fas fa-home mr-2"></i>Portfolio
+                    </a>
+                    <a href="backend-presentation.html" class="text-sm text-gray-600 hover:text-purple-600 transition">
+                        <i class="fas fa-server mr-2"></i>Backend & AI
+                    </a>
+                    <a href="fronted-presentation.html" class="text-sm text-gray-600 hover:text-purple-600 transition">
+                        <i class="fas fa-code mr-2"></i>Frontend
+                    </a>
+                    <div class="text-sm text-gray-600 font-semibold border-l-2 border-purple-300 pl-4">
+                        <i class="fas fa-user-tie mr-2"></i>Overview
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Introduction -->
+    <section class="gradient-bg text-white section-padding pt-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="mb-8">
+                    <img src="https://avatars.githubusercontent.com/u/216001794?v=4&size=64" alt="Ramesh Kumar Das" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-2xl mb-6">
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">Ramesh Kumar Das</h1>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-yellow-300">Lead Full Stack Developer</h2>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-8">
+                    <p class="text-xl leading-relaxed mb-4">
+                        A passionate <strong>Lead Full Stack Developer</strong> with <strong>6+ years</strong> of experience in building scalable, 
+                        AI-powered applications. Currently leading development at <strong>Klikyai</strong>, I specialize in architecting 
+                        full-stack solutions that combine cutting-edge AI/ML technologies with robust backend infrastructure.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-200">
+                        My expertise spans across <strong>Python, Django, React, Next.js, FastAPI</strong>, and cloud technologies, 
+                        with a strong focus on creating intelligent platforms that drive business transformation.
+                    </p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+                        <span class="font-semibold">📧</span> mrdasdeveloper@gmail.com
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+                        <span class="font-semibold">📱</span> +977 9700864900
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+                        <span class="font-semibold">🌐</span> Nepal
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Professional Summary -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Professional Summary</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 card-hover" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-briefcase text-purple-600 mr-2"></i>Core Competencies
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span><strong>Full Stack Development:</strong> End-to-end application development from UI/UX to backend APIs and database design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span><strong>AI/ML Integration:</strong> Building intelligent systems with TensorFlow, PyTorch, and custom ML models</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span><strong>Cloud Architecture:</strong> Designing scalable solutions on AWS, Docker, and Kubernetes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span><strong>Team Leadership:</strong> Leading development teams, code reviews, and technical decision-making</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-pink-50 to-orange-50 rounded-2xl p-8 card-hover" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-star text-pink-600 mr-2"></i>Key Achievements
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                                <span>Architected and delivered <strong>9+ major projects</strong> across 4 companies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                                <span>Led development of <strong>AI-powered platform</strong> serving thousands of users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                                <span>Implemented <strong>microservices architecture</strong> reducing system latency by 40%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                                <span>Mentored <strong>junior developers</strong> and established coding standards</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Overview Chart -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Technology Stack Overview</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-chart-pie text-purple-600 mr-2"></i>Technology Distribution
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="techStackChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-chart-bar text-blue-600 mr-2"></i>Expertise Level by Category
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="expertiseChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company-wise Project Tracks -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Project Tracks by Company</h2>
+            
+            <!-- Klikyai -->
+            <div class="max-w-6xl mx-auto mb-16" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">Klikyai</h3>
+                            <p class="text-xl opacity-90">Lead AI Full Stack Developer | Current</p>
+                            <p class="text-sm opacity-75 mt-2">Leading AI-powered platform development</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold">2022 - Present</div>
+                            <div class="text-sm opacity-75">3+ Years</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Klikyai Projects -->
+                <div class="space-y-8">
+                    <!-- Project 1: Klikyai AI Platform -->
+                    <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-800 mb-2">
+                                    <i class="fas fa-robot text-purple-600 mr-2"></i>Klikyai AI Platform
+                                </h4>
+                                <p class="text-gray-600">Comprehensive AI-powered platform with generative AI tools and intelligent automation</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold">Featured</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-python text-2xl text-purple-600 mr-3"></i>
+                                        <strong class="text-gray-800">Django</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Chosen for robust ORM, admin panel, and rapid development of complex business logic. Perfect for handling AI model integrations and user management.</p>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-react text-2xl text-blue-600 mr-3"></i>
+                                        <strong class="text-gray-800">Next.js</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Selected for SSR capabilities, excellent performance, and seamless integration with Django REST APIs. Enables fast page loads and SEO optimization.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-bolt text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">FastAPI</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Used for high-performance AI service endpoints. Async capabilities handle concurrent AI model requests efficiently, reducing latency by 60%.</p>
+                                </div>
+                                <div class="bg-orange-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-docker text-2xl text-orange-600 mr-3"></i>
+                                        <strong class="text-gray-800">Docker & Kubernetes</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Containerization ensures consistent environments. Kubernetes enables auto-scaling for AI workloads, handling traffic spikes seamlessly.</p>
+                                </div>
+                                <div class="bg-pink-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-database text-2xl text-pink-600 mr-3"></i>
+                                        <strong class="text-gray-800">PostgreSQL</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Selected for ACID compliance, complex queries, and reliability. Handles user data, AI model metadata, and transaction management efficiently.</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-memory text-2xl text-yellow-600 mr-3"></i>
+                                        <strong class="text-gray-800">Redis</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Implemented for caching AI responses, session management, and real-time data. Reduces database load by 70% and improves response times.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-purple-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 mb-4">
+                                <p class="text-gray-700 mb-4">
+                                    <strong>Architecture Overview:</strong> The platform is built using microservices architecture, where each AI feature is an independent service that can scale independently.
+                                </p>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Text-to-Speech Service</h6>
+                                        <p class="text-xs text-gray-600">FastAPI microservice handling TTS requests. Can scale independently based on demand.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">Image Generation Service</h6>
+                                        <p class="text-xs text-gray-600">Isolated service for Stable Diffusion models. GPU resources allocated separately.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Face Swap Service</h6>
+                                        <p class="text-xs text-gray-600">Dedicated service for face processing. Privacy-focused with separate data handling.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                                        <h6 class="font-bold text-orange-600 mb-2">User Management Service</h6>
+                                        <p class="text-xs text-gray-600">Django-based service for authentication, authorization, and user data.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-pink-200">
+                                        <h6 class="font-bold text-pink-600 mb-2">Notification Service</h6>
+                                        <p class="text-xs text-gray-600">Real-time notification microservice using WebSockets and Firebase.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-yellow-200">
+                                        <h6 class="font-bold text-yellow-600 mb-2">Payment Service</h6>
+                                        <p class="text-xs text-gray-600">Isolated payment processing service with Stripe integration for security.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>How Microservices Enhance This Project:</strong>
+                                </p>
+                                <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>Independent Scaling:</strong> Each AI service scales based on its own load. TTS service can handle 10x traffic while Image service remains at normal capacity.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>Fault Isolation:</strong> If one service fails, others continue operating. System maintains 99.9% uptime even during individual service issues.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>Technology Flexibility:</strong> Each service uses the best tech stack. FastAPI for AI services, Django for business logic, Node.js for real-time features.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>Team Autonomy:</strong> Different teams can work on different services simultaneously, reducing development bottlenecks.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>Resource Optimization:</strong> GPU-intensive services (Image Generation) are deployed separately, optimizing cloud costs by 35%.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Key Features Implemented:</h5>
+                            <ul class="grid md:grid-cols-2 gap-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Text-to-Speech with multiple voice options</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>AI Image Generation using Stable Diffusion</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Face Swap technology with privacy controls</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Comprehensive admin dashboard with analytics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Real-time notifications system</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Payment integration and subscription management</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Platform serves 10,000+ active users with 99.9% uptime. Reduced AI processing time by 40% through optimized microservices architecture. Each service can handle 5x traffic independently.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4 border-l-4 border-indigo-500">
+                            <p class="text-sm text-gray-700 mb-2">
+                                <strong><i class="fas fa-info-circle text-indigo-600 mr-2"></i>For Detailed Technical Information:</strong>
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="backend-presentation.html" class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full hover:bg-indigo-200 transition">
+                                    <i class="fas fa-server mr-1"></i>Backend Architecture
+                                </a>
+                                <a href="fronted-presentation.html" class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition">
+                                    <i class="fas fa-code mr-1"></i>Frontend Architecture
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: WINSTA-AI CMS -->
+                    <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-800 mb-2">
+                                    <i class="fas fa-cogs text-blue-600 mr-2"></i>WINSTA-AI CMS
+                                </h4>
+                                <p class="text-gray-600">Content management system with multi-language support and advanced analytics</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-python text-2xl text-blue-600 mr-3"></i>
+                                        <strong class="text-gray-800">Django</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Selected for built-in i18n support, admin customization, and excellent ORM for managing multilingual content relationships.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-database text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">PostgreSQL</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Chosen for JSONB support for flexible content storage, full-text search capabilities, and excellent performance with large datasets.</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-memory text-2xl text-yellow-600 mr-3"></i>
+                                        <strong class="text-gray-800">Redis</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Used for caching translated content, session management, and real-time analytics. Reduces database queries by 75%.</p>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-server text-2xl text-purple-600 mr-3"></i>
+                                        <strong class="text-gray-800">Nginx</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Deployed as reverse proxy and load balancer. Handles SSL termination and static file serving efficiently.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-blue-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 mb-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">Content Management Service</h6>
+                                        <p class="text-xs text-gray-600">Django service handling CRUD operations, versioning, and content workflow.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Translation Service</h6>
+                                        <p class="text-xs text-gray-600">Microservice managing 18+ languages, translation caching, and localization.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-yellow-200">
+                                        <h6 class="font-bold text-yellow-600 mb-2">Analytics Service</h6>
+                                        <p class="text-xs text-gray-600">Separate service for tracking content views, user behavior, and generating reports.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Search Service</h6>
+                                        <p class="text-xs text-gray-600">Elasticsearch-based microservice for fast, multilingual content search.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>Microservices Benefits:</strong>
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li>• Translation service scales independently during content updates</li>
+                                    <li>• Analytics service processes data without affecting content delivery</li>
+                                    <li>• Search service can be updated without downtime to other services</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Manages content for 50+ clients across 18 languages. Reduced content delivery time by 65% through microservices and CDN optimization.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-4 border-l-4 border-blue-500">
+                            <p class="text-sm text-gray-700 mb-2">
+                                <strong><i class="fas fa-info-circle text-blue-600 mr-2"></i>For Detailed Technical Information:</strong>
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="backend-presentation.html" class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition">
+                                    <i class="fas fa-server mr-1"></i>Backend Architecture
+                                </a>
+                                <a href="fronted-presentation.html" class="text-xs bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full hover:bg-cyan-200 transition">
+                                    <i class="fas fa-code mr-1"></i>Frontend Architecture
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Mobile Notification System -->
+                    <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-800 mb-2">
+                                    <i class="fas fa-bell text-orange-600 mr-2"></i>Mobile Notification System
+                                </h4>
+                                <p class="text-gray-600">Real-time push notification system for iOS and Android with scheduling and analytics</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-orange-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-python text-2xl text-orange-600 mr-3"></i>
+                                        <strong class="text-gray-800">Django</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Backend service for notification management, user preferences, and scheduling. Excellent for handling complex notification rules.</p>
+                                </div>
+                                <div class="bg-red-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-google text-2xl text-red-600 mr-3"></i>
+                                        <strong class="text-gray-800">Firebase Cloud Messaging</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Integrated for reliable cross-platform push notifications. Handles iOS and Android delivery with high success rates.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-tasks text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">Celery</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Task queue for scheduled notifications and batch processing. Ensures notifications are sent at optimal times.</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-memory text-2xl text-yellow-600 mr-3"></i>
+                                        <strong class="text-gray-800">Redis</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Message broker for Celery and caching notification templates. Enables fast notification delivery and retry mechanisms.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-orange-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 mb-4">
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                                        <h6 class="font-bold text-orange-600 mb-2">Notification API Service</h6>
+                                        <p class="text-xs text-gray-600">Django REST API for creating and managing notifications.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-red-200">
+                                        <h6 class="font-bold text-red-600 mb-2">Delivery Service</h6>
+                                        <p class="text-xs text-gray-600">Microservice handling Firebase integration and delivery tracking.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Scheduler Service</h6>
+                                        <p class="text-xs text-gray-600">Celery-based service for scheduled and batch notifications.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-yellow-200">
+                                        <h6 class="font-bold text-yellow-600 mb-2">Analytics Service</h6>
+                                        <p class="text-xs text-gray-600">Tracks delivery rates, open rates, and user engagement metrics.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">Device Management</h6>
+                                        <p class="text-xs text-gray-600">Service managing device tokens and platform-specific configurations.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Template Service</h6>
+                                        <p class="text-xs text-gray-600">Cached notification templates for fast rendering and personalization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>How Microservices Enhance This Project:</strong>
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li>• Delivery service can handle 100,000+ notifications/hour without affecting API service</li>
+                                    <li>• Scheduler service processes millions of scheduled notifications independently</li>
+                                    <li>• Analytics service runs asynchronously, not blocking notification delivery</li>
+                                    <li>• Each service can be optimized for its specific workload (CPU vs I/O intensive)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Delivers 1M+ notifications daily with 98% delivery rate. Microservices architecture enables handling traffic spikes during campaigns without service degradation.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-4 border-l-4 border-orange-500">
+                            <p class="text-sm text-gray-700 mb-2">
+                                <strong><i class="fas fa-info-circle text-orange-600 mr-2"></i>For Detailed Technical Information:</strong>
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="backend-presentation.html" class="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full hover:bg-orange-200 transition">
+                                    <i class="fas fa-server mr-1"></i>Backend Architecture
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ajath -->
+            <div class="max-w-6xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-white mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">Ajath</h3>
+                            <p class="text-xl opacity-90">Full Stack Developer</p>
+                            <p class="text-sm opacity-75 mt-2">Scalable web application development</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold">2021 - 2022</div>
+                            <div class="text-sm opacity-75">1 Year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Project: E-commerce Platform -->
+                    <div class="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">
+                            <i class="fas fa-shopping-cart text-blue-600 mr-2"></i>E-commerce Platform
+                        </h4>
+                        <p class="text-gray-600 mb-6">Full-featured e-commerce solution with payment integration and inventory management</p>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-python text-2xl text-blue-600 mr-3"></i>
+                                        <strong class="text-gray-800">Django</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Selected for built-in admin panel, security features, and excellent ORM for complex product relationships and inventory management.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-js text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">React</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Chosen for component reusability, state management, and excellent user experience. Enables dynamic product filtering and cart management.</p>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-database text-2xl text-purple-600 mr-3"></i>
+                                        <strong class="text-gray-800">PostgreSQL</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Used for ACID compliance, complex queries, and reliable transaction handling crucial for payment processing and order management.</p>
+                                </div>
+                                <div class="bg-red-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-credit-card text-2xl text-red-600 mr-3"></i>
+                                        <strong class="text-gray-800">Stripe API</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Integrated for secure payment processing, PCI compliance, and support for multiple payment methods including cards and digital wallets.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-blue-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 mb-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">Product Catalog Service</h6>
+                                        <p class="text-xs text-gray-600">Manages product data, inventory, and search functionality independently.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Order Management Service</h6>
+                                        <p class="text-xs text-gray-600">Handles order processing, status tracking, and fulfillment workflow.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Payment Service</h6>
+                                        <p class="text-xs text-gray-600">Isolated payment processing with Stripe integration for security compliance.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                                        <h6 class="font-bold text-orange-600 mb-2">User Service</h6>
+                                        <p class="text-xs text-gray-600">Manages user accounts, authentication, and profile data separately.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>Microservices Benefits:</strong>
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li>• Payment service isolated for PCI compliance and security</li>
+                                    <li>• Product catalog can scale during sales events independently</li>
+                                    <li>• Order service handles high traffic without affecting browsing experience</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Processed 5,000+ orders with zero payment failures. Achieved 50% faster checkout process through optimized React components and microservices architecture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saraj Systems -->
+            <div class="max-w-6xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">Saraj Systems</h3>
+                            <p class="text-xl opacity-90">Full Stack Developer</p>
+                            <p class="text-sm opacity-75 mt-2">Enterprise-level applications</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold">2020 - 2021</div>
+                            <div class="text-sm opacity-75">1 Year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Project: Enterprise CMS -->
+                    <div class="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">
+                            <i class="fas fa-cogs text-green-600 mr-2"></i>Enterprise Content Management System
+                        </h4>
+                        <p class="text-gray-600 mb-6">Multi-tenant CMS with advanced workflow management and analytics</p>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-python text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">Django</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Chosen for multi-tenancy support, built-in admin customization, and excellent permission system for role-based access control.</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-database text-2xl text-yellow-600 mr-3"></i>
+                                        <strong class="text-gray-800">Redis</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Implemented for caching frequently accessed content, reducing database load by 70% and improving page load times significantly.</p>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-aws text-2xl text-blue-600 mr-3"></i>
+                                        <strong class="text-gray-800">AWS S3 & CloudFront</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Used for scalable file storage and CDN distribution, ensuring fast content delivery globally with 99.99% availability.</p>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-server text-2xl text-purple-600 mr-3"></i>
+                                        <strong class="text-gray-800">Nginx</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Deployed as reverse proxy for load balancing and SSL termination, handling 10,000+ concurrent requests efficiently.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-green-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-6 mb-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Content Service</h6>
+                                        <p class="text-xs text-gray-600">Core CMS functionality with multi-tenant support and content versioning.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-yellow-200">
+                                        <h6 class="font-bold text-yellow-600 mb-2">Caching Service</h6>
+                                        <p class="text-xs text-gray-600">Redis-based service for content caching, reducing database load by 70%.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">File Storage Service</h6>
+                                        <p class="text-xs text-gray-600">AWS S3 integration for scalable media storage and CDN distribution.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Analytics Service</h6>
+                                        <p class="text-xs text-gray-600">Separate service for tracking content performance and user engagement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>Microservices Benefits:</strong>
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li>• Caching service handles high read traffic without impacting content updates</li>
+                                    <li>• File storage service scales independently for media-heavy clients</li>
+                                    <li>• Analytics processing doesn't slow down content delivery</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-lg p-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Managed content for 50+ clients with multi-tenant architecture. Reduced content delivery time by 65% through CDN optimization and microservices caching.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WebreakGlobal -->
+            <div class="max-w-6xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 text-white mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">WebreakGlobal</h3>
+                            <p class="text-xl opacity-90">Software Developer</p>
+                            <p class="text-sm opacity-75 mt-2">Web application development</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold">2019 - 2020</div>
+                            <div class="text-sm opacity-75">1 Year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Project: Business Management System -->
+                    <div class="bg-white border-2 border-orange-200 rounded-2xl p-8 shadow-xl card-hover">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">
+                            <i class="fas fa-briefcase text-orange-600 mr-2"></i>Business Management System
+                        </h4>
+                        <p class="text-gray-600 mb-6">Comprehensive business management solution with CRM and reporting features</p>
+                        
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">Technologies Used & Rationale:</h5>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-orange-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-js text-2xl text-orange-600 mr-3"></i>
+                                        <strong class="text-gray-800">Node.js & Express</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Selected for real-time features, excellent npm ecosystem, and non-blocking I/O perfect for handling multiple concurrent business operations.</p>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fab fa-react text-2xl text-blue-600 mr-3"></i>
+                                        <strong class="text-gray-800">React</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Chosen for building interactive dashboards and real-time data visualization. Component architecture enabled rapid feature development.</p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-database text-2xl text-green-600 mr-3"></i>
+                                        <strong class="text-gray-800">MongoDB</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Used for flexible schema design, allowing rapid iteration on business requirements. Excellent for storing varied business data structures.</p>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-chart-line text-2xl text-purple-600 mr-3"></i>
+                                        <strong class="text-gray-800">Chart.js</strong>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Integrated for business analytics and reporting. Lightweight library providing beautiful, responsive charts for data visualization.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-3">
+                                <i class="fas fa-sitemap text-orange-600 mr-2"></i>Microservices Architecture:
+                            </h5>
+                            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 mb-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                                        <h6 class="font-bold text-orange-600 mb-2">CRM Service</h6>
+                                        <p class="text-xs text-gray-600">Customer relationship management with contact and interaction tracking.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-200">
+                                        <h6 class="font-bold text-blue-600 mb-2">Reporting Service</h6>
+                                        <p class="text-xs text-gray-600">Separate service for generating business reports and analytics.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-green-200">
+                                        <h6 class="font-bold text-green-600 mb-2">Data Service</h6>
+                                        <p class="text-xs text-gray-600">MongoDB-based service for flexible business data storage.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 border-2 border-purple-200">
+                                        <h6 class="font-bold text-purple-600 mb-2">Dashboard Service</h6>
+                                        <p class="text-xs text-gray-600">Real-time dashboard with Chart.js for data visualization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
+                                <p class="text-sm text-gray-700 mb-2">
+                                    <strong>Microservices Benefits:</strong>
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li>• Reporting service processes data asynchronously without blocking operations</li>
+                                    <li>• Dashboard service provides real-time updates independently</li>
+                                    <li>• Each service can be optimized for its specific data access patterns</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Impact:</strong> Streamlined business operations for 20+ clients. Automated reporting reduced manual work by 80% and improved decision-making speed through microservices architecture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microservices Architecture Deep Dive -->
+    <section class="section-padding bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">How Microservices Enhance Projects</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Introduction -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl mb-8" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-architecture text-purple-600 mr-2"></i>What is Microservices Architecture?
+                    </h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Microservices architecture is a design approach where applications are built as a collection of small, 
+                        independent services that communicate over well-defined APIs. Each service is responsible for a specific 
+                        business function and can be developed, deployed, and scaled independently.
+                    </p>
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Key Characteristics:</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-800">Service Independence:</strong>
+                                    <p class="text-sm text-gray-600">Each service runs in its own process and can be deployed independently</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-800">Technology Diversity:</strong>
+                                    <p class="text-sm text-gray-600">Different services can use different programming languages and frameworks</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-800">Fault Isolation:</strong>
+                                    <p class="text-sm text-gray-600">If one service fails, others continue to operate normally</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-800">Scalability:</strong>
+                                    <p class="text-sm text-gray-600">Each service can be scaled independently based on its specific needs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-rocket text-blue-600 mr-2"></i>Performance Benefits
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-up text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>40-60% Latency Reduction:</strong> Services optimized for specific tasks perform faster
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-up text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Independent Scaling:</strong> Scale only the services that need more resources
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-up text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Resource Optimization:</strong> Allocate CPU/GPU resources where needed most
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-up text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Parallel Processing:</strong> Multiple services process requests simultaneously
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-shield-alt text-purple-600 mr-2"></i>Reliability Benefits
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Fault Isolation:</strong> One service failure doesn't bring down the entire system
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>99.9% Uptime:</strong> Services can be updated without full system downtime
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Graceful Degradation:</strong> System continues operating with reduced functionality
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Independent Deployment:</strong> Update one service without affecting others
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Real-World Example -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-chart-line text-orange-600 mr-2"></i>Real-World Impact: Klikyai AI Platform
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-purple-600 mb-2">40%</div>
+                            <p class="text-sm text-gray-700">Reduction in AI Processing Time</p>
+                            <p class="text-xs text-gray-500 mt-2">Through optimized microservices</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-blue-600 mb-2">5x</div>
+                            <p class="text-sm text-gray-700">Independent Traffic Scaling</p>
+                            <p class="text-xs text-gray-500 mt-2">Each service scales separately</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-green-600 mb-2">35%</div>
+                            <p class="text-sm text-gray-700">Cloud Cost Reduction</p>
+                            <p class="text-xs text-gray-500 mt-2">Optimized resource allocation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture Diagram Concept -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl mt-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-project-diagram text-indigo-600 mr-2"></i>Microservices Architecture Flow
+                    </h3>
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6">
+                        <div class="flex flex-wrap justify-center items-center gap-4">
+                            <div class="bg-white rounded-lg p-4 border-2 border-indigo-200 text-center min-w-[150px]">
+                                <i class="fas fa-user text-2xl text-indigo-600 mb-2"></i>
+                                <p class="font-bold text-sm">Client</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-2xl text-gray-400"></i>
+                            <div class="bg-white rounded-lg p-4 border-2 border-purple-200 text-center min-w-[150px]">
+                                <i class="fas fa-network-wired text-2xl text-purple-600 mb-2"></i>
+                                <p class="font-bold text-sm">API Gateway</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-2xl text-gray-400"></i>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-white rounded-lg p-3 border-2 border-blue-200 text-center">
+                                    <i class="fas fa-robot text-xl text-blue-600 mb-1"></i>
+                                    <p class="font-bold text-xs">AI Service</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 border-2 border-green-200 text-center">
+                                    <i class="fas fa-users text-xl text-green-600 mb-1"></i>
+                                    <p class="font-bold text-xs">User Service</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 border-2 border-orange-200 text-center">
+                                    <i class="fas fa-bell text-xl text-orange-600 mb-1"></i>
+                                    <p class="font-bold text-xs">Notification</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 border-2 border-pink-200 text-center">
+                                    <i class="fas fa-credit-card text-xl text-pink-600 mb-1"></i>
+                                    <p class="font-bold text-xs">Payment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-sm text-gray-600 mt-6">
+                            Each microservice operates independently, communicates via APIs, and can scale based on demand
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Usage Analysis -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Technology Usage Analysis</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-chart-line text-purple-600 mr-2"></i>Technology Adoption Timeline
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="techTimelineChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-project-diagram text-blue-600 mr-2"></i>Project Complexity vs Technologies
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="complexityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-sitemap text-green-600 mr-2"></i>Microservices Benefits Metrics
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="microservicesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-code-branch text-orange-600 mr-2"></i>Technology Stack by Project
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="projectTechChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Flow Guide -->
+    <section class="section-padding bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">How to Navigate This Documentation</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 shadow-xl mb-8" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800 text-center">
+                        <i class="fas fa-map-signs text-purple-600 mr-2"></i>Recommended Reading Path
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                1
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">
+                                    <a href="index.html" class="hover:text-purple-600 transition">Start with Portfolio</a>
+                                </h4>
+                                <p class="text-gray-600">Get an overview of my background, skills, projects, and achievements. This provides context for the technical documentation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                2
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">
+                                    <span class="text-blue-600">Review This Overview (Current Page)</span>
+                                </h4>
+                                <p class="text-gray-600">Understand project tracks by company, technology usage patterns, microservices benefits, and career progression. This page connects business context with technical implementation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                3
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">
+                                    <a href="backend-presentation.html" class="hover:text-green-600 transition">Dive into Backend & AI Architecture</a>
+                                </h4>
+                                <p class="text-gray-600">Explore comprehensive backend infrastructure, 12+ generative AI services, microservices architecture, security systems, and deployment strategies. Essential for understanding the technical foundation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                4
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">
+                                    <a href="fronted-presentation.html" class="hover:text-indigo-600 transition">Explore Frontend Architecture</a>
+                                </h4>
+                                <p class="text-gray-600">Learn about frontend system design, React/Next.js/Django/Flutter deep dives, component architecture, state management, API integration, and performance optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800 text-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Quick Reference Guide
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-6">
+                            <h4 class="font-bold text-blue-800 mb-3">
+                                <i class="fas fa-server text-blue-600 mr-2"></i>Backend Documentation
+                            </h4>
+                            <p class="text-sm text-gray-700 mb-3">When to read: Understanding AI services, backend infrastructure, security, or deployment</p>
+                            <ul class="text-xs text-gray-600 space-y-1 mb-4">
+                                <li>• Generative AI Services (12+ services)</li>
+                                <li>• Microservices Architecture</li>
+                                <li>• Security Systems (5 layers)</li>
+                                <li>• Docker & Kubernetes</li>
+                                <li>• RunPod & FAL.ai Deployment</li>
+                            </ul>
+                            <a href="backend-presentation.html" class="text-blue-600 font-semibold text-sm hover:underline">
+                                Read Backend Docs <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6">
+                            <h4 class="font-bold text-purple-800 mb-3">
+                                <i class="fas fa-code text-purple-600 mr-2"></i>Frontend Documentation
+                            </h4>
+                            <p class="text-sm text-gray-700 mb-3">When to read: Understanding frontend architecture, UI/UX patterns, or specific technologies</p>
+                            <ul class="text-xs text-gray-600 space-y-1 mb-4">
+                                <li>• ReactJS, NextJS, Django, Flutter</li>
+                                <li>• Component Architecture</li>
+                                <li>• State Management</li>
+                                <li>• API Integration</li>
+                                <li>• Performance Optimization</li>
+                            </ul>
+                            <a href="fronted-presentation.html" class="text-purple-600 font-semibold text-sm hover:underline">
+                                Read Frontend Docs <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why I Choose These Technologies -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Technology Selection Philosophy</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>My Approach to Technology Selection
+                        </h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            I believe in choosing the right tool for the right job. My technology decisions are driven by:
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Project Requirements:</strong> Understanding the specific needs, scale, and constraints of each project
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Performance:</strong> Selecting technologies that deliver optimal performance for the use case
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Scalability:</strong> Ensuring the stack can grow with business needs
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Team Expertise:</strong> Balancing cutting-edge tech with team capabilities
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Maintainability:</strong> Choosing technologies with strong community support and documentation
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Cost-Effectiveness:</strong> Optimizing for both development and operational costs
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Growth Chart -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Career Growth & Impact</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-chart-area text-blue-600 mr-2"></i>Career Progression
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="careerChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                            <i class="fas fa-chart-bar text-purple-600 mr-2"></i>Project Impact Metrics
+                        </h3>
+                        <div class="h-80">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links to Detailed Documentation -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">Explore Detailed Technical Documentation</h2>
+            <div class="w-32 h-1.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-400 mx-auto mb-12 rounded-full" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                For comprehensive technical details, architecture diagrams, and implementation strategies, explore the specialized documentation below.
+            </p>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Backend Documentation Card -->
+                    <div class="bg-white rounded-2xl p-8 shadow-xl card-hover" data-aos="fade-right">
+                        <div class="text-center mb-6">
+                            <div class="inline-block p-4 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full mb-4">
+                                <i class="fas fa-server text-5xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-3 text-gray-800">Backend & AI Architecture</h3>
+                            <p class="text-gray-600">Comprehensive backend infrastructure and generative AI services documentation</p>
+                        </div>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <h4 class="font-bold text-blue-800 mb-2">
+                                    <i class="fas fa-check-circle text-blue-500 mr-2"></i>What's Inside:
+                                </h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Full Stack Architecture Diagrams</li>
+                                    <li>• 12+ Generative AI Services (Text-to-Image, Video, 3D, Audio)</li>
+                                    <li>• RunPod & FAL.ai Deployment Strategies</li>
+                                    <li>• Microservices Architecture</li>
+                                    <li>• Multi-Layer Security System</li>
+                                    <li>• Docker & Kubernetes Deployment</li>
+                                    <li>• API Performance & Optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <a href="backend-presentation.html" class="block w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-center px-6 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
+                            <i class="fas fa-arrow-right mr-2"></i>View Backend Documentation
+                        </a>
+                    </div>
+                    
+                    <!-- Frontend Documentation Card -->
+                    <div class="bg-white rounded-2xl p-8 shadow-xl card-hover" data-aos="fade-left">
+                        <div class="text-center mb-6">
+                            <div class="inline-block p-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full mb-4">
+                                <i class="fas fa-code text-5xl text-purple-500"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-3 text-gray-800">Frontend Architecture</h3>
+                            <p class="text-gray-600">Complete frontend system design and technology deep dives</p>
+                        </div>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h4 class="font-bold text-purple-800 mb-2">
+                                    <i class="fas fa-check-circle text-purple-500 mr-2"></i>What's Inside:
+                                </h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• ReactJS, NextJS, Django, Flutter Deep Dives</li>
+                                    <li>• Complete System Architecture Diagrams</li>
+                                    <li>• Component Architecture & Design Patterns</li>
+                                    <li>• State Management Strategies</li>
+                                    <li>• API Integration Approaches</li>
+                                    <li>• Performance Optimization Techniques</li>
+                                    <li>• Security & Best Practices</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <a href="fronted-presentation.html" class="block w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center px-6 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
+                            <i class="fas fa-arrow-right mr-2"></i>View Frontend Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Ready to Work Together?</h2>
+            <p class="text-xl mb-8 text-gray-200 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                I'm always open to discussing new opportunities, innovative projects, or how I can contribute to your team's success.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="index.html#contact" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
+                    <i class="fas fa-envelope mr-2"></i>Get In Touch
+                </a>
+                <a href="ramesh-lead-ai-full-stack-developer.pdf" download class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all border-2 border-white/30">
+                    <i class="fas fa-download mr-2"></i>Download Resume
+                </a>
+                <a href="index.html" class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all border-2 border-white/30">
+                    <i class="fas fa-home mr-2"></i>Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Charts
+        function initCharts() {
+            Chart.defaults.color = '#374151';
+            Chart.defaults.borderColor = 'rgba(0, 0, 0, 0.1)';
+
+            // Technology Stack Chart
+            const techStackCtx = document.getElementById('techStackChart');
+            if (techStackCtx) {
+                new Chart(techStackCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Python/Django', 'JavaScript/React', 'AI/ML', 'Cloud/DevOps', 'Database', 'Mobile'],
+                        datasets: [{
+                            data: [30, 25, 20, 15, 5, 5],
+                            backgroundColor: [
+                                'rgba(102, 126, 234, 0.8)',
+                                'rgba(118, 75, 162, 0.8)',
+                                'rgba(240, 147, 251, 0.8)',
+                                'rgba(79, 172, 254, 0.8)',
+                                'rgba(0, 242, 254, 0.8)',
+                                'rgba(250, 112, 154, 0.8)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            }
+
+            // Expertise Level Chart
+            const expertiseCtx = document.getElementById('expertiseChart');
+            if (expertiseCtx) {
+                new Chart(expertiseCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Backend', 'Frontend', 'AI/ML', 'DevOps', 'Database', 'Mobile'],
+                        datasets: [{
+                            label: 'Expertise %',
+                            data: [95, 90, 85, 80, 85, 70],
+                            backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true, max: 100 }
+                        }
+                    }
+                });
+            }
+
+            // Technology Timeline Chart
+            const techTimelineCtx = document.getElementById('techTimelineChart');
+            if (techTimelineCtx) {
+                new Chart(techTimelineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                        datasets: [
+                            {
+                                label: 'Python/Django',
+                                data: [60, 70, 80, 85, 90, 95, 95],
+                                borderColor: 'rgba(102, 126, 234, 1)',
+                                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                                tension: 0.4
+                            },
+                            {
+                                label: 'React/Next.js',
+                                data: [50, 60, 70, 80, 85, 90, 90],
+                                borderColor: 'rgba(118, 75, 162, 1)',
+                                backgroundColor: 'rgba(118, 75, 162, 0.1)',
+                                tension: 0.4
+                            },
+                            {
+                                label: 'AI/ML',
+                                data: [30, 40, 50, 65, 75, 85, 85],
+                                borderColor: 'rgba(240, 147, 251, 1)',
+                                backgroundColor: 'rgba(240, 147, 251, 0.1)',
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true, max: 100 }
+                        }
+                    }
+                });
+            }
+
+            // Complexity Chart
+            const complexityCtx = document.getElementById('complexityChart');
+            if (complexityCtx) {
+                new Chart(complexityCtx, {
+                    type: 'scatter',
+                    data: {
+                        datasets: [
+                            {
+                                label: 'Klikyai Projects',
+                                data: [
+                                    {x: 8, y: 9, project: 'AI Platform'},
+                                    {x: 7, y: 8, project: 'CMS'},
+                                    {x: 6, y: 7, project: 'Notification System'}
+                                ],
+                                backgroundColor: 'rgba(102, 126, 234, 0.6)'
+                            },
+                            {
+                                label: 'Other Companies',
+                                data: [
+                                    {x: 5, y: 6, project: 'E-commerce'},
+                                    {x: 4, y: 5, project: 'Business Management'},
+                                    {x: 6, y: 7, project: 'Enterprise CMS'}
+                                ],
+                                backgroundColor: 'rgba(250, 112, 154, 0.6)'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { title: { display: true, text: 'Technologies Used' } },
+                            y: { title: { display: true, text: 'Project Complexity' } }
+                        }
+                    }
+                });
+            }
+
+            // Career Chart
+            const careerCtx = document.getElementById('careerChart');
+            if (careerCtx) {
+                new Chart(careerCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                        datasets: [{
+                            label: 'Career Level',
+                            data: [1, 2, 3, 4, 5, 6, 7],
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 8,
+                            pointBackgroundColor: 'rgba(102, 126, 234, 1)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true, max: 10 }
+                        }
+                    }
+                });
+            }
+
+            // Impact Chart
+            const impactCtx = document.getElementById('impactChart');
+            if (impactCtx) {
+                new Chart(impactCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Users Served', 'Projects Delivered', 'Performance Improvement', 'Cost Reduction'],
+                        datasets: [{
+                            label: 'Impact %',
+                            data: [95, 100, 85, 70],
+                            backgroundColor: [
+                                'rgba(102, 126, 234, 0.8)',
+                                'rgba(118, 75, 162, 0.8)',
+                                'rgba(240, 147, 251, 0.8)',
+                                'rgba(79, 172, 254, 0.8)'
+                            ],
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true, max: 100 }
+                        }
+                    }
+                });
+            }
+
+            // Microservices Benefits Chart
+            const microservicesCtx = document.getElementById('microservicesChart');
+            if (microservicesCtx) {
+                new Chart(microservicesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Latency Reduction', 'Scalability', 'Uptime', 'Cost Optimization', 'Development Speed'],
+                        datasets: [{
+                            label: 'Improvement %',
+                            data: [60, 80, 99, 35, 50],
+                            backgroundColor: [
+                                'rgba(102, 126, 234, 0.8)',
+                                'rgba(118, 75, 162, 0.8)',
+                                'rgba(240, 147, 251, 0.8)',
+                                'rgba(79, 172, 254, 0.8)',
+                                'rgba(250, 112, 154, 0.8)'
+                            ],
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: { 
+                                beginAtZero: true, 
+                                max: 100,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Project Technology Stack Chart
+            const projectTechCtx = document.getElementById('projectTechChart');
+            if (projectTechCtx) {
+                new Chart(projectTechCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Django', 'React/Next.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker/K8s', 'Firebase', 'AWS'],
+                        datasets: [
+                            {
+                                label: 'Klikyai AI Platform',
+                                data: [95, 90, 85, 80, 75, 90, 70, 85],
+                                borderColor: 'rgba(102, 126, 234, 1)',
+                                backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'WINSTA-AI CMS',
+                                data: [90, 60, 40, 85, 80, 70, 30, 75],
+                                borderColor: 'rgba(79, 172, 254, 1)',
+                                backgroundColor: 'rgba(79, 172, 254, 0.2)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'E-commerce Platform',
+                                data: [85, 90, 30, 90, 60, 60, 20, 60],
+                                borderColor: 'rgba(250, 112, 154, 1)',
+                                backgroundColor: 'rgba(250, 112, 154, 0.2)',
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    stepSize: 20
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(initCharts, 500);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+# Personal Information & Sensitive Data
+0-info/
+1-Certificate/
+2-WebreakGlobal/
+3-Saraj Systems/
+4. Ajath/
+5. klikyai/
+
+
+
+# System Files
+.DS_Store
+*.log
+*.tmp
+Thumbs.db
+desktop.ini
+
+# Development Files
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# Media Files (if you want to ignore images)
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.svg
+
+# Archive Files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
